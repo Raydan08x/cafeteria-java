@@ -11,11 +11,12 @@ public class kata7 {
         double subtotal;
         double porcentajeDescuento;
         double valorDescuento;
+        double subtotalConDescuento;
         double iva;
         double total;
         double totalCompra = 0;
 
-        String respuesta;
+        char respuesta;
 
         do {
             System.out.print("Ingresa el precio del producto: ");
@@ -37,11 +38,8 @@ public class kata7 {
             }
 
             valorDescuento = subtotal * porcentajeDescuento;
-
-            double subtotalConDescuento = subtotal - valorDescuento;
-
+            subtotalConDescuento = subtotal - valorDescuento;
             iva = subtotalConDescuento * 0.19;
-
             total = subtotalConDescuento + iva;
 
             totalCompra = totalCompra + total;
@@ -52,9 +50,9 @@ public class kata7 {
             System.out.println("Total: $" + total);
 
             System.out.print("¿Agregar otro producto? (S/N): ");
-            respuesta = scanner.next();
+            respuesta = scanner.next().charAt(0);
 
-        } while (respuesta.equalsIgnoreCase("S"));
+        } while (respuesta == 'S' || respuesta == 's');
 
         System.out.println("Total de la compra: $" + totalCompra);
 
